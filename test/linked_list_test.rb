@@ -51,5 +51,26 @@ class LinkedListTest < MiniTest::Test
     assert_equal 2, @linked_list.count
     assert_equal string, @linked_list.to_string
   end
-end
 
+  def test_you_can_prepend_nodes
+    @linked_list.append("Hardy")
+    @linked_list.append("Henderson")
+
+    @linked_list.prepend("McKinney")
+
+    string = "The McKinney family, followed by the Hardy family, followed by the Henderson family"
+
+    assert_equal string, @linked_list.to_string
+    assert_equal 3, @linked_list.count
+  end
+
+  def test_you_can_insert_at_position
+    @linked_list.append("Hardy")
+    @linked_list.append("Henderson")
+    @linked_list.insert(1, "Lawson")
+
+    string = "The Hardy family, followed by the Lawson family, followed by the Henderson family"
+
+    assert_equal string, @linked_list.to_string
+  end
+end

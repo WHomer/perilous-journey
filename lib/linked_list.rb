@@ -31,4 +31,30 @@ class LinkedList
       @head.to_string(string)
     end
   end
+
+  def prepend(data)
+    if @head.nil? 
+      @head = Node.new(data)
+    else
+      node = Node.new(data)
+      node.next_node = @head
+      @head = node
+    end
+  end 
+
+  def insert(depth, data)
+    if @head.nil? 
+      @head = Node.new(data)
+    else
+      i = 1
+      node = @head
+      while i < depth do
+        node = node.next_node
+        i += 1
+      end
+      new_node = Node.new(data)
+      new_node.next_node = node.next_node
+      node.next_node = new_node
+    end
+  end
 end
