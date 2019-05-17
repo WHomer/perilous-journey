@@ -57,4 +57,19 @@ class LinkedList
       node.next_node = new_node
     end
   end
+
+  def find(depth, length)
+    i = 0
+    node = @head
+    while i < depth do
+      node = node.next_node
+      i += 1
+    end
+    string = "The #{node.surname} family"
+    i = 1
+    while i < length
+      node.next_node.to_string(string) if node.next_node
+      i += 1
+    end
+  end
 end

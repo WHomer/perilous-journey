@@ -31,6 +31,5 @@ class Node
       string += ", followed by the #{@next_node.surname} family"
       @next_node.to_string(string)
     end
-      
   end
 end

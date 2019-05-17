@@ -73,4 +73,35 @@ class LinkedListTest < MiniTest::Test
 
     assert_equal string, @linked_list.to_string
   end
+
+  def test_find_node_in_list
+    @linked_list.append("Node 1")
+    @linked_list.append("Node 2")
+    @linked_list.append("Node 3")
+    @linked_list.append("Node 4")
+    @linked_list.append("Node 5")
+    @linked_list.append("Node 6")
+
+    string = "The Node 1 family, followed by the Node 2 family, followed by the Node 3 family, followed by the Node 4 family, followed by the Node 5 family, followed by the Node 6 family"
+    assert_equal string, @linked_list.to_string
+
+    assert "The Node 3 family", @linked_list.find(2, 1)
+
+    assert "The Node 2 family, followed by the Node 3 family, followed by the Node 4 family", @linked_list.find(1, 3)
+  end
 end
+
+# > list.find(1, 3)
+# => "The Lawson family, followed by the Brooks family, followed by the Henderson family"
+# > list.includes?("Brooks")
+# => true
+# > list.includes?("Chapman")
+# => false
+# > list.pop
+# The Henderson family has died of dysentery
+# => <Node surname="Henderson" next_node=nil #5678904567890>
+# > list.pop
+# The Brooks family has died of dysentery
+# => <Node surname="Brooks" next_node=nil #5678904567890>
+# > list.to_string
+# => "The McKinney family, followed by the Lawson family"
