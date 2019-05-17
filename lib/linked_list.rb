@@ -8,7 +8,11 @@ class LinkedList
   end
 
   def append(data)
-    @head = Node.new(data)
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      @head.append(data)
+    end
   end
 
   def count
@@ -20,6 +24,11 @@ class LinkedList
   end
 
   def to_string
-    "The #{@head.surname} family"
+    string = "The #{@head.surname} family"
+    if @head.nil?
+      return string
+    else
+      @head.to_string(string)
+    end
   end
 end
